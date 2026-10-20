@@ -1,0 +1,46 @@
+
+{
+  "pilot_area": "Pune district, Maharashtra",
+  "crop": "Tomato",
+  "last_updated": null,
+  "notice": "These are research leads, not confirmed buyers. Contact each business to verify direct procurement, price, quantity, quality requirements and availability.",
+  "businesses": [
+    {
+      "id": "samarth-agro",
+      "name": "Samarth Agro Food Processing",
+      "area": "Narayangaon, Junnar, Pune district",
+      "business_type": "Tomato processing",
+      "products_or_capability": [
+        "Tomato sauce",
+        "Ketchup",
+        "Tomato puree",
+        "Tomato paste"
+      ],
+      "website": "https://samarthagro.co.in/",
+      "contact_status": "not_contacted",
+      "buys_fresh_tomatoes_directly": null,
+      "offered_price_per_kg": null,
+      "minimum_quantity_kg": null,
+      "availability_confirmed": false,
+      "verification_date": null,
+      "source": "Company website; procurement details require confirmation"
+    },
+    {
+      "id": "spar-agrotech",
+      "name": "SPAR Agrotech",
+      "area": "Kapurhol, Pune district",
+      "business_type": "Food processing",
+      "products_or_capability": [
+        "Aseptic tomato paste"
+      ],
+      "website": "https://www.sparagrotech.in/",
+      "contact_status": "not_contacted",
+      "buys_fresh_tomatoes_directly": null,
+      "offered_price_per_kg": null,
+      "minimum_quantity_kg": null,
+      "availability_confirmed": false,
+      "verification_date": null,
+      "source": "Company website; procurement details require confirmation"
+    }
+  ]
+}

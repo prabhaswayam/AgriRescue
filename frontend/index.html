@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AgriRescue — Real Market Intelligence</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="brand">
+        <div class="brand-icon">🌱</div>
+
+        <div>
+            <h1>AgriRescue</h1>
+            <p>Post-Harvest Decision Intelligence</p>
+        </div>
+    </div>
+
+    <div class="version">
+        v0.4 • Real Data
+    </div>
+</header>
+
+
+<main class="container">
+
+    <section class="hero">
+
+        <div class="hero-text">
+            <span class="eyebrow">
+                REAL-WORLD PROTOTYPE
+            </span>
+
+            <h2>
+                Find the best place<br>
+                for your produce.
+            </h2>
+
+            <p>
+                AgriRescue compares real agricultural market information
+                and helps you understand where your produce may generate
+                the best return.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- FARMER INPUT -->
+
+    <section class="card">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="step-label">STEP 1</span>
+
+                <h3>
+                    Tell us about your produce
+                </h3>
+
+                <p>
+                    Enter only the information you know.
+                </p>
+            </div>
+
+        </div>
+
+
+        <form id="farmerForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label for="crop">
+                        Crop
+                    </label>
+
+                    <select id="crop" required>
+
+                        <option value="Tomato">
+                            Tomato
+                        </option>
+
+                        <option value="Potato">
+                            Potato
+                        </option>
+
+                        <option value="Onion">
+                            Onion
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="quantity">
+                        Quantity
+                    </label>
+
+                    <div class="input-with-unit">
+
+                        <input
+                            type="number"
+                            id="quantity"
+                            placeholder="500"
+                            min="1"
+                            required
+                        >
+
+                        <span>kg</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group full-width">
+
+                    <label for="location">
+                        Your location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Example: Pune, Maharashtra"
+                        required
+                    >
+
+                    <small>
+                        For now, enter your district/city.
+                    </small>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="quality">
+                        Produce quality
+                    </label>
+
+                    <select id="quality">
+
+                        <option value="high">
+                            High
+                        </option>
+
+                        <option value="medium" selected>
+                            Medium
+                        </option>
+
+                        <option value="low">
+                            Low
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="urgency">
+                        How urgent is the sale?
+                    </label>
+
+                    <select id="urgency">
+
+                        <option value="today">
+                            Today
+                        </option>
+
+                        <option value="2days" selected>
+                            Within 2 days
+                        </option>
+
+                        <option value="week">
+                            Within a week
+                        </option>
+
+                    </select>
+
+             
+                </div>
+
+                <!-- ADDITIONAL CALCULATION INPUTS -->
+
+                <div class="form-group">
+                    <label for="transportRate">
+                        Transport cost per kg (₹)
+                    </label>
+                    <input
+                        type="number"
+                        id="transportRate"
+                        value="2"
+                        min="0"
+                        step="0.1"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="maxDistance">
+                        Maximum travel distance (km)
+                    </label>
+                    <input
+                        type="number"
+                        id="maxDistance"
+                        value="50"
+                        min="1"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="futurePrice">
+                        Expected future price per kg (₹)
+                    </label>
+                    <input
+                        type="number"
+                        id="futurePrice"
+                        value="15"
+                        min="0"
+                        step="0.5"
+                        required
+                    >
+                    <small>Used to estimate the storage option.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="storageDays">
+                        Storage duration (days)
+                    </label>
+                    <input
+                        type="number"
+                        id="storageDays"
+                        value="3"
+                        min="1"
+                        required
+                    >
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                id="findBtn"
+                class="primary-btn"
+            >
+                Find Best Market Options
+                <span>→</span>
+            </button>
+
+            >
+
+                Find Best Market Options
+
+                <span>→</span>
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- DATA STATUS -->
+
+    <section
+        id="dataStatus"
+        class="status-card hidden"
+    >
+
+        <div class="status-dot"></div>
+
+        <div>
+
+            <strong id="statusTitle">
+                Connecting to government market data...
+            </strong>
+
+            <p id="statusText">
+                Please wait.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESULTS -->
+
+    <section
+        id="results"
+        class="results hidden"
+    >
+
+    </section>
+
+
+    <!-- VERIFIED-BUSINESS DIRECTORY -->
+    <section id="buyers-section" class="info-card">
+        <h2>Tomato Buyers & Processing Leads</h2>
+        <p>
+            Explore potential businesses in Pune district.
+            Contact them to confirm current purchasing,
+            prices, quantity requirements and availability.
+        </p>
+
+        <div id="buyers-list">
+            Loading business directory...
+        </div>
+
+        <p id="buyers-status" role="status"></p>
+    </section>
+
+
+    <!-- EXPLANATION -->
+
+    <section class="info-card">
+
+        <div class="info-icon">
+            i
+        </div>
+
+        <div>
+
+            <h3>
+                Where does this information come from?
+            </h3>
+
+            <p>
+                Market prices are sourced from the Government of India's
+                agricultural market data published through AGMARKNET
+                and data.gov.in.
+            </p>
+
+            <p class="source-note">
+                Market prices are updated daily. They are not guaranteed
+                live auction prices.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        AgriRescue • Real-world research prototype
+    </p>
+
+    <p>
+        Government market data • AGMARKNET / data.gov.in
+    </p>
+
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
