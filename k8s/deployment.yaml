@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agrirescue-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agrirescue-backend
+  template:
+    metadata:
+      labels:
+        app: agrirescue-backend
+    spec:
+      containers:
+        - name: agrirescue-backend
+          image: agrirescue-backend:jenkins
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000
