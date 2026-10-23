@@ -26,8 +26,9 @@ pipeline {
             steps {
                 sh '''
                     docker build \
+                      -f backend/Dockerfile \
                       -t "$ECR_REPOSITORY:$IMAGE_TAG" \
-                      ./backend
+                      .
                 '''
             }
         }

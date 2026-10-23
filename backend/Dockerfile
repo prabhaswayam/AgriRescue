@@ -5,11 +5,12 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends curl \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
+COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY main.py .
-COPY buyers.json .
+COPY backend/main.py .
+COPY backend/buyers.json .
+COPY frontend/ /frontend/
 
 EXPOSE 8000
 

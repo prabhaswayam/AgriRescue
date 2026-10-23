@@ -1,5 +1,7 @@
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 import subprocess
 import json
 from urllib.parse import urlencode
@@ -22,14 +24,12 @@ app.add_middleware(
 )
 
 
+FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
+app.mount("/static", StaticFiles(directory=str(FRONTEND_DIR)), name="static")
+
 @app.get("/")
 def home():
-    return {
-        "status": "online",
-        "project": "AgriRescue",
-        "version": "0.5.0"
-    }
-
+    return FileResponse(FRONTEND_DIR / "index.html")
 
 @app.get("/api/mandi")
 def get_mandi_prices(
